@@ -1,0 +1,5 @@
+<ul>
+  <% @rooms.each do |room| %>
+    <%= render partial: "room", locals: { room: room } %>
+  <% end %>
+</ul>

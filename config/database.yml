@@ -1,0 +1,8 @@
+development:
+  adapter: postgresql #specifies the type of database adapter to use
+  encoding: unicode #specifies the character encoding for the database connection
+  database: digitalhub #database name
+  pool: 3  #max number of database connections that can be open simultaneously
+  username: postgres #specifies the username to use when connecting to the database
+  password: 123123 #specifies the password when connecting the database
+  host: localhost #specifies the hostname of the database server

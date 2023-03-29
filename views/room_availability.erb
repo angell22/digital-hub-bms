@@ -1,0 +1,19 @@
+<h1>Check Room Availability</h1>
+
+<form method="post" action="/booking/<%= @room.id %>/check">
+  <div>
+    <label for="date">Date:</label>
+    <input type="date" name="date" required>
+  </div>
+  <div>
+    <label for="start_time">Start Time:</label>
+    <input type="time" name="start_time" required>
+  </div>
+  <div>
+    <label for="end_time">End Time:</label>
+    <input type="time" name="end_time" required>
+  </div>
+  <button type="submit">Check Availability</button>
+</form>
+
+<p><strong>Note:</strong> All fields are required.</p>
