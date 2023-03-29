@@ -1,11 +1,16 @@
 <h1>Registration form</h1>
 
 <form method="post" action="/register">
-    <label for="email">Email: </label>
-    <input type="email" name="email">
 
-    <label for="password">Password: </label>
-    <input type="password" name="password">
-
-    <button type="submit">Submit</button>
+    <div class="input-group mb-3">
+        <label for="">Username: </label>
+        <input type="text" class="form-control" name="username" placeholder="Username or Email" ; ?>
+    </div>
+    <div class="input-group mb-3">
+        <label for="">Password: </label>
+        <input type="password" class="form-control" name="password" placeholder="Password" ; ?>
+    </div>
+    <div class="input-group">
+        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+    </div>
 </form>

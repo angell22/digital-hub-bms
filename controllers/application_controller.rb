@@ -24,12 +24,20 @@ class ApplicationController < Sinatra::Base
     end
 
     # registration page
+    get '/register' do
+        erb :register
+    end
+
+    #registration form
     post '/register' do
         username = params[:username]
         password = params[:password]
-    end
 
+        user = User.new(username: username, password:password)
 
+        user.save
+        redirect '/'
+    end 
 
     # retrieve user's information from database
     get 'users/:id' do
