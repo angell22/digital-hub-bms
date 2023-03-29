@@ -9,25 +9,27 @@ class ApplicationController < Sinatra::Base
     end 
 
     # login page
-    get '/login' do
-        erb :login
-    end
-
-    # login route
-    post '/login/verify' do
-        if session[:booking?] == true
+    post '/login' do
+        if session[logged_in] == true
             @user = User.find_by(email: params[:email])
             session[:user_id] = @user.id
-            redirect "/booking/#{session[:room_id]}/create"
             
+        
         else
             @user = User.find_by(email: params[:email])
             session[:user_id] = @user.id
             redirect "/profile"
 
         end
-        # "im here"
     end
+
+    # registration page
+    post '/register' do
+        username = params[:username]
+        password = params[:password]
+    end
+
+
 
     # retrieve user's information from database
     get 'users/:id' do
