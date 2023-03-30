@@ -1,0 +1,14 @@
+    
+<form method="post" action="/update/user/<%= @user.id %>">
+        <div class="input-group mb-3">
+            <label for="">New Username: </label>
+            <input type="text" class="form-control" value="<%= @user.username %>" name="username">
+        </div>
+        <div class="input-group mb-3">
+            <label for=""> Password: </label>
+            <input type="password" class="form-control" name="password" >
+        </div>
+        <div class="input-group">
+            <button type="submit" name="submit" class="btn btn-primary">Confirm</button>
+        </div>
+</form>

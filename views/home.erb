@@ -1,0 +1,26 @@
+<div class="container">
+  <section class="users-section">
+    <% @users.each do |user| %>
+      <div class="user-card">
+        <h2>Welcome <%= user.role ? "admin" : "user" %> <%= user.username %></h2>
+      </div>
+         <p><a href="/edit/user/<%= user.id %>">Edit</a></p>
+         <p><a href="/delete/user/<%= user.id %>">Delete</a></p>
+         <p><a href="/logout">Logout</a></p>
+    <% end %>
+  </section>
+
+  <section class="rooms-section">
+    <% @rooms.each do |room| %>
+      <a href="/book_room/<%= room.id %>">
+        <div class="room-card">
+          <h2><%= room.room_name %></h2>
+          <ul>
+            <li>Rate: RM<%= room.rate %></li>
+            <li>Capacity: <%= room.capacity %> people</li>
+          </ul>
+        </div>
+      </a>
+    <% end %>
+  </section>
+</div>
