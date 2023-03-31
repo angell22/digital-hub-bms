@@ -129,14 +129,49 @@ class ApplicationController < Sinatra::Base
 
     #view room
     get '/room_list' do
-        @rooms = Room_all
+        @rooms = Room.all
         erb :room_list
     end
+
+     # Direct to edit room
+     get '/edit/room/:id' do
+        @room = Room.find(params[:id])
+        erb :edit_room 
+    end
+
+    #update room
+    post '/update/room/:id' do
+        room_name = params[:room_name]
+        rate = params[:rate]
+        capacity = params[:capacity]
+        
+        room = Room.find_by(id: room_id)
+
+        if @room.save
+        else
+            erb :error, locals:{message: 'Failed to update room details. Please try again.'}
+        end
+    end
+    
+    #delete room 
+    get '/delete/room/:id' do
+        @room = Room.find(params[:id])
+        @room.destroy
+
+        redirect '/admin'
+    end
+
 
     ## ADMIN ACTION ##
     #admin page
     get '/admin' do
-        erb :admin
+        if session[:logged_in]
+            @users = User.where(id: session[:user_id])
+
+            erb :admin
+        else
+            redirect '/'
+        end
     end
 
     ## BOOKING ACTION ##

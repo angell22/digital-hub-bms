@@ -2,15 +2,18 @@
   <section class="users-section">
     <% @users.each do |user| %>
       <div class="user-card">
-        <h2>Welcome <%= user.role ? "admin" : "user" %> <%= user.username %></h2>
+        <h1><%= user.role ? "admin" : "user" %> :<%= user.username %></h1>
       </div>
+         <h2> Manage account: </h2>
          <p><a href="/edit/user/<%= user.id %>">Edit</a></p>
          <p><a href="/delete/user/<%= user.id %>">Delete</a></p>
          <p><a href="/logout">Logout</a></p>
     <% end %>
   </section>
 
+
   <section class="rooms-section">
+    <h1> Here is the list of rooms: </h1>
     <% @rooms.each do |room| %>
       <a href="/book_room/<%= room.id %>">
         <div class="room-card">
@@ -19,6 +22,7 @@
             <li>Rate: RM<%= room.rate %></li>
             <li>Capacity: <%= room.capacity %> people</li>
           </ul>
+          <button class="btn btn-primary mt-3 form-control" type="submit">Book</button>
         </div>
       </a>
     <% end %>

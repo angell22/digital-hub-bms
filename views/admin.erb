@@ -1,3 +1,12 @@
-<h1> test </h1>
-
- 
+ <div class="container">
+  <section class="users-section">
+    <% @users.each do |user| %>
+      <div class="user-card">
+        <h2>Welcome <%= user.role ? "admin" : "user" %> <%= user.username %></h2>
+      </div>
+         
+         <p><a href="/logout">Logout</a></p>
+         <p><a href="/add_room">Add Room</a></p>
+         <p><a href="/room_list">View Room List</a></p>  
+    <% end %>
+  </section>
