@@ -144,12 +144,13 @@ class ApplicationController < Sinatra::Base
         room_name = params[:room_name]
         rate = params[:rate]
         capacity = params[:capacity]
-        
-        room = Room.find_by(id: room_id)
-
-        if @room.save
+      
+        room = Room.find_by(id: params[:id])
+      
+        if room.update(room_name: room_name, rate: rate, capacity: capacity)
+          redirect '/room_list'
         else
-            erb :error, locals:{message: 'Failed to update room details. Please try again.'}
+          erb :error, locals:{message: 'Failed to update room details. Please try again.'}
         end
     end
     
